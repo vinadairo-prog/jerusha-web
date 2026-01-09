@@ -10,10 +10,10 @@ html {
 
 body {
   margin: 0;
-    color: #fdf5e6; /* Esto es el color 'Old Lace' para el texto, que queda precioso con este vino */
+    color: #D4AF37;
   overflow-x: hidden;
   background-color: #631212;
-    color: #fdf5e6; /* Este tono crema sobre el vino es mucho más elegante que el blanco puro */
+    color: #D4AF37;
     font-family: 'Poppins', sans-serif;
     line-height: 1.6;
   padding-top: 100px;
@@ -66,7 +66,7 @@ body {
   margin: 0;
   padding-top: 0; /* Quitamos el padding extra para que el header pegue arriba */
   background-color: #631212;
-  color: #fdf5e6;
+  color: #C5B358;
   font-family: 'Poppins', sans-serif;
   overflow-x: hidden;
 }
@@ -74,7 +74,7 @@ body {
 .logo {
   font-family: 'Playfair Display', serif;
   font-size: 2rem;
-  color: #E29399;
+  color: #E3C16F;
   letter-spacing: 3px;
   text-transform: uppercase;
   position: relative;
@@ -93,7 +93,7 @@ nav ul {
 nav ul li a {
   position: relative;
   z-index: 1; 
-  color: #fdf5e6;
+  color: #E3C16F;
   text-decoration: none;
   font-weight: 500;
   text-shadow: 1px 1px 2px rgba(0,0,0,0.8); /* Ayuda a que resalten sobre la foto */
@@ -105,7 +105,7 @@ font-size: 0.95rem; /* Un pelín más pequeña la letra si es necesario */
 }
 
 nav ul li a:hover {
-  color: #C2B280;
+  color: #E3C16F;
 }
 .hero {
   padding: 80px 20px;
@@ -122,9 +122,9 @@ nav ul li a:hover {
     letter-spacing: 2px;
   font-family: 'Playfair Display', serif;
     font-size: 4rem;
-    color: #E29399; /* Tu Rosenholz */
+    color: #fdf5e6; /* Tu Rosenholz */
     margin-bottom: 20px;
-    letter-spacing: 2px;
+    letter-spacing: 10px;
     text-shadow: 
         3px 3px 0px rgba(0, 0, 0, 0.8), 
         6px 6px 15px rgba(0, 0, 0, 0.9);
@@ -144,7 +144,7 @@ nav ul li a:hover {
   display: inline-block; /* Esto es CLAVE para que respete los márgenes */
     margin-top: 30px;      /* Esto empuja el botón hacia abajo del párrafo */
     padding: 12px 30px;
-    background-color: #E29399; /* Tu Rosenholz */
+    background-color: #C5B358; /* Tu Rosenholz */
     color: #3d0a0a;            /* Vino oscuro para el texto del botón */
     text-decoration: none;
     border-radius: 50px;
@@ -403,4 +403,3 @@ section {
     font-size: 1.5rem;     /* Aseguramos que el nombre Jerusha destaque */
   }
 }
-
