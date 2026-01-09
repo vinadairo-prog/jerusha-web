@@ -13,16 +13,68 @@ html {
 
 body {
   margin: 0;
-  font-family: 'Poppins', sans-serif;
-  background-color: #1a0005; /* Vino Profundo */
-  color: white;
+    color: #fdf5e6; /* Esto es el color 'Old Lace' para el texto, que queda precioso con este vino */
   overflow-x: hidden;
+  background-color: #631212;
+    color: #fdf5e6; /* Este tono crema sobre el vino es mucho más elegante que el blanco puro */
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+  padding-top: 100px;
 }
 
 h1, h2, .logo, .footer-logo {
   font-family: 'Playfair Display', serif;
 }
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+  padding: 25px 5%; 
+  
+  box-sizing: border-box;
+  overflow: hidden;
+  background-color: #2b0606;
+  z-index: 1000;
+  position: fixed; 
+  top: 0;
+  width: 100%;
+  display: flex;
+  border-bottom: 1px solid rgba(226, 147, 153, 0.2);
+}
 
+.fondo-menu {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  
+  /* Ajustamos la posición para que se vea la mejor parte de su rostro */
+  object-position: center 20%; 
+  
+  /* Subimos un poquito la opacidad ya que el menú es más grande */
+  opacity: 0.25; 
+  filter: grayscale(100%) brightness(0.8);
+  z-index: -1;
+  pointer-events: none;
+  
+  filter: grayscale(100%);
+  z-index: -1; /* Se coloca detrás del logo y la lista */
+}
+
+/* Asegúrate de que los enlaces tengan buen contraste */
+nav ul li a {
+  position: relative;
+  z-index: 1; 
+  color: #fdf5e6;
+  text-decoration: none;
+  font-weight: 500;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.8); /* Ayuda a que resalten sobre la foto */
+}
 /* --- NAVEGACIÓN --- */
 header {
   background-color: #1a0005;
@@ -32,26 +84,29 @@ header {
 }
 
 .logo {
-  font-size: 1.8rem;
-  color: #C2B280;
-  margin-bottom: 15px;
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  color: #E29399;
   letter-spacing: 3px;
   text-transform: uppercase;
+  position: relative;
+  z-index: 1;
 }
 
 nav ul {
-  list-style: none;
-  padding: 0;
   display: flex;
-  justify-content: center;
-  gap: 30px;
-  flex-wrap: wrap;
+  list-style: none;
+  gap: 20px; /* Reducimos un poco el espacio entre palabras */
+  margin: 0;
+  padding: 0;
+  flex-wrap: nowrap; 
 }
 
 nav ul li a {
+  font-size: 0.95rem; /* Un pelín más pequeña la letra si es necesario */
+  white-space: nowrap; 
   color: #f5f5f5;
   text-decoration: none;
-  font-size: 0.9rem;
   letter-spacing: 2px;
   text-transform: uppercase;
   transition: 0.3s;
@@ -60,53 +115,61 @@ nav ul li a {
 nav ul li a:hover {
   color: #C2B280;
 }
-
-/* --- SECCIÓN HERO (INICIO) --- */
 .hero {
-  height: 80vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding-top: 50px; /* Le damos este respiro */
-  background: linear-gradient(135deg, #2b0b13 0%, #1a0005 100%);
+    /* El nuevo gradiente intermedio que definimos */
+    background: linear-gradient(135deg, #3d0a0a 0%, #2b0606 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 100px 20px;
+    color: #fdf5e6; /* Un color arena suave para que no canse la vista */
 }
 
-h1 {
+.hero h1 {
+    letter-spacing: 2px;
   font-family: 'Playfair Display', serif;
-  font-size: clamp(3rem, 10vw, 5rem);
-  margin-bottom: 10px;
-  color: #D6A4A4; /* Este es un Rosenholz más claro y luminoso */
-  text-shadow: 2px 4px 15px rgba(0,0,0,0.4);
-  letter-spacing: 2px;
+    font-size: 4rem;
+    color: #E29399; /* Tu Rosenholz */
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+    text-shadow: 
+        3px 3px 0px rgba(0, 0, 0, 0.8), 
+        6px 6px 15px rgba(0, 0, 0, 0.9);
 }
 
-.hero h4 {
-  font-weight: 300;
-  letter-spacing: 2px;
-  margin-bottom: 30px;
+.hero p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 300;
+    max-width: 600px;
+    /* Sombra más sutil para el subtítulo */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
 }
 
 /* --- BOTONES --- */
 .btn-primary {
-  display: inline-block;
-  background-color: #C2B280;
-  color: #2b0b13;
+  display: inline-block; /* Esto es CLAVE para que respete los márgenes */
+    margin-top: 30px;      /* Esto empuja el botón hacia abajo del párrafo */
+    padding: 12px 30px;
+    background-color: #E29399; /* Tu Rosenholz */
+    color: #3d0a0a;            /* Vino oscuro para el texto del botón */
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: bold;
+    transition: all 0.3s ease;
   padding: 15px 35px;
-  text-decoration: none;
   font-weight: 600;
   text-transform: uppercase;
-  border-radius: 4px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-  transition: 0.3s;
-  border: none;
   cursor: pointer;
 }
 
 .btn-primary:hover {
-  background-color: #D4C69C;
-  transform: translateY(-3px);
-  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.5);
+ background-color: #fdf5e6; /* Cambia a color arena al pasar el mouse */
+    transform: translateY(-3px); /* Sube un poquito, como si flotara */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
 
 /* --- SECCIONES GENERALES --- */
@@ -132,32 +195,44 @@ h1 {
 }
 
 /* --- GALERÍA --- */
+/* 1. El contenedor general (Mantenlo siempre) */
 .grid-galeria {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
-  margin-top: 50px;
+  padding: 40px 20px;
 }
 
+/* 2. La tarjeta de la foto */
 .foto-card {
   aspect-ratio: 1/1;
-  overflow: hidden;
-  border-radius: 4px;
-  border: 1px solid rgba(194, 178, 128, 0.3);
-  filter: grayscale(30%);
-  transition: 0.4s;
+  border-radius: 8px;
+  border: 1px solid rgba(226, 147, 153, 0.3);
+  filter: grayscale(40%);
+  transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  cursor: pointer;
+  position: relative; /* Importante para el orden visual */
+  
+  /* ELIMINAMOS 'overflow: hidden' para que la foto pueda crecer hacia afuera */
 }
 
-.foto-card:hover {
-  filter: grayscale(0%);
-  transform: scale(1.03);
-  border-color: #C2B280;
-}
-
+/* 3. La imagen dentro de la tarjeta */
 .foto-card img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
+  border-radius: 8px;
+  display: block;
+}
+
+/* 4. EL EFECTO MÁGICO: Cuando pasas el cursor */
+.foto-card:hover {
+  filter: grayscale(0%);
+  transform: scale(1.15); /* Crece un 15% frente a las demás */
+  z-index: 100; /* ESTO hace que se ponga "al frente" de todo */
+  border-color: #E29399;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7); /* Sombra pesada para dar altura */
 }
 
 /* --- SECCIÓN MÚSICA (EL CORAZÓN) --- */
@@ -253,19 +328,44 @@ h1 {
 
 /* --- FOOTER --- */
 footer {
-  background-color: #0d0003;
-  padding: 60px 20px;
-  border-top: 1px solid rgba(194, 178, 128, 0.2);
+  background-color: #2b0606; /* Tu tono vino oscuro */
+  color: #fdf5e6;
+  padding: 40px 20px;
+  text-align: center;
+  border-top: 1px solid rgba(226, 147, 153, 0.2);
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column; /* Alinea todo el contenido del footer en vertical */
+  align-items: center;
+  gap: 25px; /* Espacio entre el logo, los links y el copyright */
+}
+
+.footer-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  color: #E29399; /* Tu color Rosenholz */
+  letter-spacing: 2px;
+}
+
+.social-links {
+  display: flex;
+  flex-direction: column; /* ¡Aquí sucede la magia! Se ponen uno debajo de otro */
+  gap: 12px; /* Espacio entre cada red social */
+  align-items: center;
 }
 
 .social-links a {
-  color: white;
-  margin: 0 15px;
+  color: #fdf5e6;
   text-decoration: none;
-  transition: 0.3s;
+  font-size: 0.9rem;
+  transition: color 0.3s ease;
 }
 
-.social-links a:hover { color: #C2B280; }
+.social-links a:hover {
+  color: #E29399; /* Brilla al pasar el cursor */
+}
 
 /* --- RESPONSIVE --- */
 @media (max-width: 768px) {
@@ -276,3 +376,4 @@ footer {
 section {
   scroll-margin-top: 100px; /* Esto hace que el salto del menú sea más suave y elegante */
 }
+
