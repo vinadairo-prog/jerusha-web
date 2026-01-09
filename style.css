@@ -1,7 +1,4 @@
-
 @charset "UTF-8";
-
-/* Reset básico para que todo encaje perfecto */
 * {
   margin: 0;
   padding: 0;
@@ -25,48 +22,8 @@ body {
 h1, h2, .logo, .footer-logo {
   font-family: 'Playfair Display', serif;
 }
-nav {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  display: flex;
-  justify-content: space-between; 
-  align-items: center;
-  padding: 25px 5%; 
-  
-  box-sizing: border-box;
-  overflow: hidden;
-  background-color: #2b0606;
-  z-index: 1000;
-  position: fixed; 
-  top: 0;
-  width: 100%;
-  display: flex;
-  border-bottom: 1px solid rgba(226, 147, 153, 0.2);
-}
 
-.fondo-menu {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  
-  /* Ajustamos la posición para que se vea la mejor parte de su rostro */
-  object-position: center 20%; 
-  
-  /* Subimos un poquito la opacidad ya que el menú es más grande */
-  opacity: 0.25; 
-  filter: grayscale(100%) brightness(0.8);
-  z-index: -1;
-  pointer-events: none;
-  
-  filter: grayscale(100%);
-  z-index: -1; /* Se coloca detrás del logo y la lista */
-}
 
-/* Asegúrate de que los enlaces tengan buen contraste */
 nav ul li a {
   position: relative;
   z-index: 1; 
@@ -75,12 +32,52 @@ nav ul li a {
   font-weight: 500;
   text-shadow: 1px 1px 2px rgba(0,0,0,0.8); /* Ayuda a que resalten sobre la foto */
 }
-/* --- NAVEGACIÓN --- */
 header {
-  background-color: #1a0005;
-  padding: 40px 20px;
-  text-align: center;
-  border-bottom: 1px solid rgba(194, 178, 128, 0.2);
+  position: relative;
+  width: 100%;
+  min-height: 250px; /* Aquí controlas la altura. Si lo quieres más alto, pon 350px */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden; /* Esto corta cualquier desborde de la foto */
+  background-color: #1a0005; /* Color de respaldo */
+}
+
+/* --- LA IMAGEN DE FONDO --- */
+.fondo-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;    /* Llena todo el espacio sin deformarse */
+  object-position: center 70%; /* Ajusta para que se vea su rostro */
+  opacity: 0.35;        /* Intensidad de la imagen */
+  filter: grayscale(100%) brightness(0.7);
+  z-index: 1;           /* Se queda atrás */
+  pointer-events: none;
+}
+
+/* --- LA NAVEGACIÓN (SOBRE LA FOTO) --- */
+nav {
+  position: relative;   /* Importante para que el z-index funcione */
+  z-index: 10;          /* Por encima de la foto */
+  width: 100%;
+  max-width: 1400px;    /* Para que no se estiren demasiado los menús en pantallas grandes */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 5%;
+}
+
+/* Ajuste del Body para que el contenido no se pegue al header */
+body {
+  margin: 0;
+  padding-top: 0; /* Quitamos el padding extra para que el header pegue arriba */
+  background-color: #631212;
+  color: #fdf5e6;
+  font-family: 'Poppins', sans-serif;
+  overflow-x: hidden;
 }
 
 .logo {
@@ -116,14 +113,13 @@ nav ul li a:hover {
   color: #C2B280;
 }
 .hero {
-    /* El nuevo gradiente intermedio que definimos */
-    background: linear-gradient(135deg, #3d0a0a 0%, #2b0606 100%);
+  padding: 80px 20px;
+  background: transparent;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 100px 20px;
     color: #fdf5e6; /* Un color arena suave para que no canse la vista */
 }
 
@@ -376,4 +372,3 @@ footer {
 section {
   scroll-margin-top: 100px; /* Esto hace que el salto del menú sea más suave y elegante */
 }
-
