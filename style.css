@@ -1,405 +1,369 @@
+/* 1. IMPORTACIÓN DE FUENTES */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cormorant+Garamond:ital,wght@0,500;0,700;1,500&family=Poppins:wght@300;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cormorant+Garamond:ital,wght@0,500;0,700;1,500&family=Pinyon+Script&family=Forum&family=Prata&family=Marcellus&family=Poppins:wght@300;500&display=swap');
+
 @charset "UTF-8";
+
+/* --- 1. CONFIGURACIÓN GLOBAL --- */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
+
 html {
-  scroll-behavior: smooth;
+    scroll-behavior: smooth;
 }
 
 body {
-  margin: 0;
-    color: #D4AF37;
-  overflow-x: hidden;
-  background-color: #631212;
-    color: #D4AF37;
+    margin: 0;
+    padding-top: 0;
+    color: #dccfb0; /* Sand */
+    overflow-x: hidden;
     font-family: 'Poppins', sans-serif;
     line-height: 1.6;
-  padding-top: 100px;
+    background: radial-gradient(circle at 50% 50%, #2a2a2a 0%, #050505 100%);
+    background-attachment: fixed;
+    position: relative;
 }
 
+/* Textura de Relieve */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-image: url('https://www.transparenttextures.com/patterns/pinstriped-suit.png');
+    opacity: 0.18;
+    z-index: -1;
+    pointer-events: none;
+    filter: brightness(1.2) contrast(1.1);
+}
+
+/* Efecto Viñeta */
+body::after {
+    content: "";
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: radial-gradient(circle at 50% 50%, transparent 10%, rgba(0, 0, 0, 0.6) 100%);
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* --- 2. TIPOGRAFÍA & LINKS --- */
 h1, h2, .logo, .footer-logo {
-  font-family: 'Playfair Display', serif;
+    font-family: 'Pinyon Script', cursive;
+    color: #dccfb0;
 }
 
+a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+/* --- 3. HEADER & NAVEGACIÓN --- */
 header {
-  position: relative;
-  width: 100%;
-  min-height: 250px; /* Aquí controlas la altura. Si lo quieres más alto, pon 350px */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden; /* Esto corta cualquier desborde de la foto */
-  background-color: #1a0005; /* Color de respaldo */
+    position: relative;
+    width: 100%;
+    min-height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background-color: #050505;
 }
 
-/* --- LA IMAGEN DE FONDO --- */
 .fondo-header {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;    /* Llena todo el espacio sin deformarse */
-  object-position: center 70%; /* Ajusta para que se vea su rostro */
-  opacity: 0.35;        /* Intensidad de la imagen */
-  filter: grayscale(100%) brightness(0.7);
-  z-index: 1;           /* Se queda atrás */
-  pointer-events: none;
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: center 70%;
+    opacity: 0.55; 
+    filter: grayscale(100%) brightness(0.9);
+    z-index: 1;
 }
 
-/* --- LA NAVEGACIÓN (SOBRE LA FOTO) --- */
 nav {
-  position: relative;   /* Importante para que el z-index funcione */
-  z-index: 10;          /* Por encima de la foto */
-  width: 100%;
-  max-width: 1400px;    /* Para que no se estiren demasiado los menús en pantallas grandes */
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 5%;
-}
-
-/* Ajuste del Body para que el contenido no se pegue al header */
-body {
-  margin: 0;
-  padding-top: 0; /* Quitamos el padding extra para que el header pegue arriba */
-  background-color: #631212;
-  color: #C5B358;
-  font-family: 'Poppins', sans-serif;
-  overflow-x: hidden;
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    max-width: 1400px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5%;
 }
 
 .logo {
-  font-family: 'Playfair Display', serif;
-  font-size: 2rem;
-  color: #E3C16F;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  position: relative;
-  z-index: 1;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 4rem;
+    font-style: italic;
+    color: #e5e4e2; /* Silber */
+    letter-spacing: 6px;
 }
 
 nav ul {
-  display: flex;
-  list-style: none;
-  gap: 20px; /* Reducimos un poco el espacio entre palabras */
-  margin: 0;
-  padding: 0;
-  flex-wrap: nowrap; 
-}
-
-nav ul li a {
-  position: relative;
-  z-index: 1; 
-  color: #E3C16F;
-  text-decoration: none;
-  font-weight: 500;
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.8); /* Ayuda a que resalten sobre la foto */
-font-size: 0.95rem; /* Un pelín más pequeña la letra si es necesario */
-  white-space: nowrap; 
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  transition: 0.3s;
-}
-
-nav ul li a:hover {
-  color: #E3C16F;
-}
-.hero {
-  padding: 80px 20px;
-  background: transparent;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    list-style: none;
+    gap: 20px;
+}
+
+.hero {
+    padding: 120px 20px;
     text-align: center;
-    color: #fdf5e6; /* Un color arena suave para que no canse la vista */
+    max-width: 900px; /* Limitamos el ancho para que el texto no se estire demasiado */
+    margin: 0 auto;
 }
 
 .hero h1 {
-    letter-spacing: 2px;
-  font-family: 'Playfair Display', serif;
-    font-size: 4rem;
-    color: #fdf5e6; /* Tu Rosenholz */
-    margin-bottom: 20px;
-    letter-spacing: 10px;
-    text-shadow: 
-        3px 3px 0px rgba(0, 0, 0, 0.8), 
-        6px 6px 15px rgba(0, 0, 0, 0.9);
+    font-family: 'Cinzel Decorative', cursive; /* O la que elijas de las nuevas */
+    font-size: 5rem;
+    color: #fdf5e6;
+    letter-spacing: 15px;
+    text-shadow: 3px 3px 15px rgba(0, 0, 0, 0.9);
+    margin-bottom: 10px; /* Pegado al h4 para que funcionen como unidad */
+    text-transform: uppercase;
 }
 
+/* El Subtítulo: "La Versatilidad de una Voz..." */
+.hero h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem;
+    font-style: italic;
+    font-weight: 500;
+    color: #dccfb0;; /* Silber */
+    letter-spacing: 4px;
+    margin-bottom: 25px;
+    opacity: 0.9;
+}
+
+/* El Párrafo: "Interpretando la música popular..." */
 .hero p {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Cormorant Garamond', serif;
     font-size: 1.5rem;
     font-weight: 300;
-    max-width: 600px;
-    /* Sombra más sutil para el subtítulo */
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    color: #dccfb0; /* Sand */
+    max-width: 700px;
+    margin: 0 auto 40px auto; /* Centrado y con espacio antes del botón */
+    line-height: 1.8;
+    letter-spacing: 1.5px;
 }
 
-/* --- BOTONES --- */
+/* Tu botón "Escuchar ahora" con el margen corregido */
 .btn-primary {
-  display: inline-block; /* Esto es CLAVE para que respete los márgenes */
-    margin-top: 30px;      /* Esto empuja el botón hacia abajo del párrafo */
-    padding: 12px 30px;
-    background-color: #C5B358; /* Tu Rosenholz */
-    color: #3d0a0a;            /* Vino oscuro para el texto del botón */
+    background: rgba(255, 255, 255, 0.03);
+    color: #e5e4e2;
+    border: 1px solid #c0c0c0;
+    padding: 14px 35px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    cursor: pointer;
+    transition: 0.4s;
+    display: inline-block;
     text-decoration: none;
-    border-radius: 50px;
-    font-weight: bold;
-    transition: all 0.3s ease;
-  padding: 15px 35px;
-  font-weight: 600;
-  text-transform: uppercase;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-  cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.85rem;
 }
 
 .btn-primary:hover {
- background-color: #fdf5e6; /* Cambia a color arena al pasar el mouse */
-    transform: translateY(-3px); /* Sube un poquito, como si flotara */
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    color: #ffffff;
+    border-color: #ffffff;
+    background-color: rgba(192, 192, 192, 0.2);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.15);
 }
 
-/* --- SECCIONES GENERALES --- */
+/* Otros botones (como los del formulario) */
+button, input[type="submit"] {
+    background: rgba(255, 255, 255, 0.03);
+    color: #e5e4e2;
+    border: 1px solid #c0c0c0;
+    padding: 12px 28px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+/* --- 6. SECCIONES --- */
 .content-section {
-  padding: 100px 20px;
-  max-width: 1000px;
-  margin: 0 auto;
-  text-align: center;
+    padding: 100px 20px;
+    max-width: 1100px;
+    margin: 0 auto;
+    text-align: center;
 }
 
 .content-section h2 {
-  color: #C2B280;
-  font-size: 2.8rem;
-  margin-bottom: 30px;
+    font-family: 'Cormorant Garamond', serif;
+    color: #dccfb0;
+    font-size: 2.8rem;
+    margin-bottom: 30px;
 }
 
-.content-section p {
-  line-height: 1.8;
-  font-size: 1.1rem;
-  color: #f5f5f5;
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-/* --- GALERÍA --- */
-/* 1. El contenedor general (Mantenlo siempre) */
+/* --- 7. GALERÍA --- */
 .grid-galeria {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-  padding: 40px 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 40px 0;
+    justify-content: center;
 }
 
-/* 2. La tarjeta de la foto */
 .foto-card {
-  aspect-ratio: 1/1;
-  border-radius: 8px;
-  border: 1px solid rgba(226, 147, 153, 0.3);
-  filter: grayscale(40%);
-  transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  cursor: pointer;
-  position: relative; /* Importante para el orden visual */
-  
-  /* ELIMINAMOS 'overflow: hidden' para que la foto pueda crecer hacia afuera */
+    aspect-ratio: 1/1;
+    border-radius: 4px;
+    border: 1px solid rgba(192, 192, 192, 0.3);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+    filter: grayscale(40%);
+    transition: 0.5s;
+    cursor: pointer;
 }
 
-/* 3. La imagen dentro de la tarjeta */
 .foto-card img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  border-radius: 8px;
-  display: block;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
 }
 
-/* 4. EL EFECTO MÁGICO: Cuando pasas el cursor */
 .foto-card:hover {
-  filter: grayscale(0%);
-  transform: scale(1.15); /* Crece un 15% frente a las demás */
-  z-index: 100; /* ESTO hace que se ponga "al frente" de todo */
-  border-color: #E29399;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7); /* Sombra pesada para dar altura */
+    filter: grayscale(0%);
+    transform: scale(1.1);
+    z-index: 100;
 }
 
-/* --- SECCIÓN MÚSICA (EL CORAZÓN) --- */
+/* --- 8. SECCIÓN MÚSICA (REPRODUCTOR A LA DERECHA) --- */
 #musica {
-  position: relative;
-  background-image: url('https://raw.githubusercontent.com/vinadairo-prog/jerusha-web/main/images/foto%202.jpeg');
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  padding: 100px 0;
-  text-align: center;
+    position: relative;
+    background-image: url('https://raw.githubusercontent.com/vinadairo-prog/jerusha-web/main/images/foto%202.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    padding: 100px 0;
 }
 
 #musica::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; width: 100%; height: 100%;
-  background: rgba(26, 0, 5, 0.85); /* Capa vino oscuro desvanecido */
-  z-index: 1;
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(10, 10, 10, 0.70);
+    z-index: 1;
 }
 
 #musica .container {
-  position: relative;
-  z-index: 2;
+    position: relative;
+    z-index: 2;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
 }
 
 .music-layout {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 40px;
-  flex-wrap: wrap;
-  margin-top: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 50px;
+    flex-wrap: wrap;
 }
 
 .portada-decorativa {
-  width: 250px;
-  height: 350px;
-  object-fit: cover;
-  border-radius: 15px;
-  opacity: 0.5; /* Desvanecidas */
-  border: 1px solid #C2B280;
-  transition: 0.5s;
+    width: 320px;
+    height: 450px;
+    object-fit: cover;
+    border-radius: 4px;
+    opacity: 0.85;
+    border: 1px solid #e5e4e2;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.8);
 }
 
-.portada-decorativa:hover {
-  opacity: 1;
-  transform: scale(1.02);
-}
-
-/* CONTENEDOR DE SOUNDCLOUD CON SCROLL */
 #soundcloud-container {
-  flex: 1;
-  max-width: 600px;
-  max-height: 550px;
-  overflow-y: auto;
-  padding-right: 15px;
-  scrollbar-width: thin;
-  scrollbar-color: #C2B280 transparent;
+    flex: 1;
+    min-width: 300px;
+    max-width: 600px;
+    margin-left: auto;
+    max-height: 550px;
+    overflow-y: auto;
 }
 
-#soundcloud-container iframe {
-  margin-bottom: 15px;
-  border-radius: 8px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.4);
-}
-
-/* Scrollbar para Chrome/Safari */
-#soundcloud-container::-webkit-scrollbar { width: 6px; }
-#soundcloud-container::-webkit-scrollbar-thumb { background: #C2B280; border-radius: 10px; }
-
-/* --- CONTACTO Y FORMULARIO --- */
+/* --- 9. CONTACTO --- */
 .contact-form {
-  max-width: 600px;
-  margin: 40px auto;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
+    max-width: 600px;
+    margin: 40px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
 .contact-form input, .contact-form textarea {
-  padding: 15px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(194, 178, 128, 0.3);
-  color: white;
-  border-radius: 4px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(192, 192, 192, 0.3);
+    color: white;
+    border-radius: 4px;
+    font-family: 'Poppins', sans-serif;
 }
 
-.contact-form input:focus, .contact-form textarea:focus {
-  outline: none;
-  border-color: #C2B280;
-}
-
-/* --- FOOTER --- */
+/* --- 10. FOOTER (CORREGIDO Y ELEGANTE) --- */
 footer {
-  background-color: #2b0606; /* Tu tono vino oscuro */
-  color: #fdf5e6;
-  padding: 40px 20px;
-  text-align: center;
-  border-top: 1px solid rgba(226, 147, 153, 0.2);
+    background-color: #050505;
+    color: #e5e4e2; /* Silber */
+    padding: 60px 20px;
+    text-align: center;
+    border-top: 1px solid rgba(192, 192, 192, 0.2);
 }
 
 .footer-content {
-  display: flex;
-  flex-direction: column; /* Alinea todo el contenido del footer en vertical */
-  align-items: center;
-  gap: 25px; /* Espacio entre el logo, los links y el copyright */
+    display: flex;
+    flex-direction: column; /* Alinea todo hacia abajo, uno tras otro */
+    align-items: center;
+    gap: 30px; /* Espacio entre el logo, los links y el copyright */
 }
 
 .footer-logo {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.8rem;
-  color: #E29399; /* Tu color Rosenholz */
-  letter-spacing: 2px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3rem; /* Aumentamos el tamaño aquí */
+    font-style: italic;
+    color: #e5e4e2;
+    letter-spacing: 5px;
+    text-transform: none;
 }
 
 .social-links {
-  display: flex;
-  flex-direction: column; /* ¡Aquí sucede la magia! Se ponen uno debajo de otro */
-  gap: 12px; /* Espacio entre cada red social */
-  align-items: center;
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .social-links a {
-  color: #fdf5e6;
-  text-decoration: none;
-  font-size: 0.9rem;
-  transition: color 0.3s ease;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #dccfb0; /* Sand */
+    transition: 0.3s;
 }
 
 .social-links a:hover {
-  color: #E29399; /* Brilla al pasar el cursor */
+    color: #ffffff;
+}
+
+footer p {
+    font-size: 0.8rem;
+    opacity: 0.6;
+    letter-spacing: 1px;
+    margin-top: 10px;
 }
 
 /* --- RESPONSIVE --- */
+@media (max-width: 900px) {
+    #soundcloud-container { margin-left: 0; width: 100%; }
+    .music-layout { justify-content: center; }
+}
+
 @media (max-width: 768px) {
-  .portada-decorativa { display: none; } /* En móvil ocultamos las fotos laterales para dar espacio */
-  nav ul { gap: 15px; }
-  h1 { font-size: 3rem; }
-}
-.section-hidden {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 1s ease-out;
+    nav { flex-direction: column; padding: 20px 0; }
+    nav ul { flex-wrap: wrap; justify-content: center; gap: 10px; }
+    .hero h1 { font-size: 2.8rem; letter-spacing: 5px; }
 }
 
-.section-visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-section {
-  scroll-margin-top: 100px; /* Esto hace que el salto del menú sea más suave y elegante */
-}
-/* --- AJUSTES PARA MÓVILES (HANDY) --- */
-@media (max-width: 768px) {
-  header {
-    min-height: 200px; /* Un poco más bajo para que no ocupe tanto espacio */
-  }
-
-  nav {
-    flex-direction: column; /* El logo arriba y el menú abajo */
-    gap: 15px;
-    padding: 20px 0;
-  }
-
-  nav ul {
-    flex-wrap: wrap;       /* Permite que los botones bajen a la siguiente línea si no caben */
-    justify-content: center;
-    gap: 10px 15px;        /* Espacio entre filas y columnas */
-  }
-
-  nav ul li a {
-    font-size: 0.9rem;     /* Letra un poquito más pequeña para que quepa todo */
-  }
-
-  .logo {
-    font-size: 1.5rem;     /* Aseguramos que el nombre Jerusha destaque */
-  }
-}
+.section-hidden { opacity: 0; transform: translateY(30px); transition: 1s; }
+.section-visible { opacity: 1; transform: translateY(0); }
