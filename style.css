@@ -50,11 +50,17 @@ body::after {
 }
 
 /* --- 2. TIPOGRAFÍA & LINKS --- */
-h1, h2, .logo, .footer-logo {
+.logo, .footer-logo {
     font-family: 'Pinyon Script', cursive;
     color: #dccfb0;
 }
-
+h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.8rem;
+    color: #dccfb0;
+    margin-bottom: 30px;
+    text-align: center;
+}
 a {
     color: #ffffff;
     text-decoration: none;
@@ -229,7 +235,37 @@ button, input[type="submit"] {
     transform: scale(1.1);
     z-index: 100;
 }
+#video-performance {
+    padding: 60px 0;
+    text-align: center;
+}
 
+.video-grid {
+    display: grid;
+    /* Crea dos columnas en pantallas grandes, una en pequeñas */
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    padding: 20px;
+}
+
+.video-responsive {
+    position: relative;
+    padding-bottom: 56.25%; /* Relación de aspecto 16:9 */
+    height: 0;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    background-color: #000; /* Fondo negro mientras carga */
+}
+
+.video-responsive iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
 /* --- 8. SECCIÓN MÚSICA (REPRODUCTOR A LA DERECHA) --- */
 #musica {
     position: relative;
