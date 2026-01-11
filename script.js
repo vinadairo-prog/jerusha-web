@@ -4,7 +4,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const header = document.querySelector('header');
     
     window.addEventListener('scroll', () => {
-        // Si bajamos más de 50px, el header se vuelve más denso y elegante
         if (window.scrollY > 50) {
             header.style.transition = 'background-color 0.5s ease';
             header.style.backgroundColor = 'rgba(26, 0, 5, 0.98)'; 
@@ -14,20 +13,22 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // 2. Animación de "Aparición Suave" (Fade-in)
-    // Esto hace que las secciones no aparezcan de golpe
-    const sections = document.querySelectorAll('.content-section, #musica');
+    // Seleccionamos todas las secciones que queremos que tengan el efecto
+    const sections = document.querySelectorAll('.content-section, #musica, #video-performance, #contacto, #bio');
     
     const revealSection = (entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('section-visible');
+                // Opcional: una vez visible, dejamos de observarla
+                observer.unobserve(entry.target);
             }
         });
     };
 
     const sectionObserver = new IntersectionObserver(revealSection, {
         root: null,
-        threshold: 0.15,
+        threshold: 0.12, // Un punto medio ideal
     });
 
     sections.forEach(section => {
